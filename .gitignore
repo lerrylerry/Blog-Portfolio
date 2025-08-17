@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+*.env
+
+# SQLite database (only ignore if you don’t want to track dev DB)
+db.sqlite3
+
+# Django specific
+*.log
+media/
+staticfiles/
+
+# VSCode / IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Node (if you add React frontend later)
+node_modules/
+build/
+dist/
