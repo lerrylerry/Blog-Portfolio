@@ -31,8 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # Django REST Framework
     'corsheaders', # CORS headers for cross-origin requests
-    'blog', # Blog application
-    'portfolio', # Portfolio application
+     # Blog application
+     # Portfolio application
+    'accounts', # Accounts application
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # React app running on localhost
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True  # (later, restrict to your domain in prod)
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -82,16 +85,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {"default": {"ENGINE":"django.db.backends.sqlite3","NAME": BASE_DIR/"db.sqlite3"}}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  
+#         'NAME': 'blog_db',                     
+#         'USER': 'root',                       
+#         'PASSWORD': '',                       
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
-'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
+
 '''
 DATABASES = {
     "default": {
