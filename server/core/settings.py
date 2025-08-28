@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'rest_framework', # Django REST Framework
     'corsheaders', # CORS headers for cross-origin requests
     'blog', # Blog application
-     # Portfolio application
+    'portfolio', # Portfolio application
     'accounts', # Accounts application
 ]
 
@@ -135,10 +135,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
-}
+# SIMPLE_JWT = {
+#     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+#     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+# }
 
 
 # Internationalization

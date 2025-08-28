@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from phonenumber_field.modelfields import PhoneNumberField
+
+# This is a good practice when referencing to user model, it will always return the active user model
+User = get_user_model()
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="author")
