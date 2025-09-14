@@ -9,7 +9,7 @@ export default function ProfilePage() {
     const token = localStorage.getItem("access");
     if (!token) return;
 
-    fetch(`${API_URL}/api/profile/`, {
+    fetch(`${API_URL}/api/accounts/profile/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

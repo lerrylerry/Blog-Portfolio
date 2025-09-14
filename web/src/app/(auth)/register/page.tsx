@@ -2,20 +2,18 @@
 import { useState } from "react";
 import { apiRequest } from "@/lib/api";
 
-export default function LoginPage() {
-  const [form, setForm] = useState({ username: "", password: "" });
+export default function RegisterPage() {
+  const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [msg, setMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const data = await apiRequest("/api/login/", {
+      await apiRequest("/api/accounts/register/", {
         method: "POST",
         body: JSON.stringify(form),
       });
-      localStorage.setItem("access", data.access);
-      localStorage.setItem("refresh", data.refresh);
-      setMsg("Logged in successfully!");
+      setMsg("Registered successfully! You can now login.");
     } catch (err: any) {
       setMsg("Error: " + err.message);
     }
@@ -23,7 +21,7 @@ export default function LoginPage() {
 
   return (
     <div className="max-w-sm mx-auto mt-10">
-      <h1 className="text-xl font-bold mb-4">Login</h1>
+      <h1 className="text-xl font-bold mb-4">Register</h1>
       <form onSubmit={handleSubmit} className="space-y-3">
         <input
           className="w-full border p-2 rounded"
@@ -33,13 +31,20 @@ export default function LoginPage() {
         />
         <input
           className="w-full border p-2 rounded"
+          placeholder="Email"
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        <input
+          className="w-full border p-2 rounded"
           placeholder="Password"
           type="password"
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
         <button className="w-full bg-blue-500 text-white p-2 rounded">
-          Login
+          Register
         </button>
       </form>
       {msg && <p className="mt-3 text-sm">{msg}</p>}
